@@ -6,7 +6,7 @@ def reviews_open_get():
 	users = []
 	#users = []
 	headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
-	resp = requests.get('http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/filter?states=Review,Summarize', headers=headers)
+	resp = requests.get('test.com/rest-service/reviews-v1/filter?states=Review,Summarize', headers=headers)
 	data=resp.json()
 	for i in data['reviewData']:
 		authors = i['author']
@@ -19,7 +19,7 @@ def reviews_open_get():
 def active_users_get():
 	active_users = []
 	headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
-	resp = requests.get('http://tiger.in.alcatel-lucent.com:8060/rest-service/users-v1',  headers=headers)
+	resp = requests.get('test.com/rest-service/users-v1',  headers=headers)
 	data=resp.json()
 	for i in data['userData']:
 		active_users.append(i['userName'])
