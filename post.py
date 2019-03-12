@@ -6,7 +6,7 @@ load = {
 "action":"action:closeReview",
 "ignoreWarnings":"ignoreWarnings==true"
 }
-uri = "http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/AMS9590-798/transition?action=action:closeReview"
+uri = "http://test.com/rest-service/reviews-v1/AMS9590-798/transition?action=action:closeReview"
 response = requests.post(uri, data=load, headers=headers)
 data=response.json()
 print(data)
