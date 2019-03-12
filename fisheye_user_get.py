@@ -5,9 +5,9 @@ import json
 userDetail={}
 def active_users_get():
 	active_users = []
-	#url = "http://tiger.in.alcatel-lucent.com:8091/rest/api/2/group/member"
+	#url = "http://test.com/rest/api/2/group/member"
 
-	nextUrl=url = "http://tiger.in.alcatel-lucent.com:8091/rest/api/2/group/member?groupname=fe-cru-users&startAt=0&maxResults=500"
+	nextUrl=url = "http://test.com/rest/api/2/group/member?groupname=fe-cru-users&startAt=0&maxResults=500"
 	while nextUrl !=None:
 		query = {'startAt': 0, 'maxResults': 500, 'groupname': 'fe-cru-users'}
 		headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
