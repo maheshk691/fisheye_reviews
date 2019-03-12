@@ -6,7 +6,7 @@ def reviews_users_get():
 	users = []
     #users = []
 	headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
-	resp = requests.get('http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/filter?states=Review,Summarize',  headers=headers)
+	resp = requests.get('http://test.com/rest-service/reviews-v1/filter?states=Review,Summarize',  headers=headers)
 	data=resp.json()
 	for i in data['reviewData']:
 		authors = i['author']
@@ -19,7 +19,7 @@ def reviews_users_get():
 def active_users_get():
 	active_users = []
 	headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
-	resp = requests.get('http://tiger.in.alcatel-lucent.com:8060/rest-service/users-v1',  headers=headers)
+	resp = requests.get('http://test.com/rest-service/users-v1',  headers=headers)
 	data=resp.json()
 	for i in data['userData']:
 		active_users.append(i['userName'])
@@ -29,7 +29,7 @@ def active_users_get():
 def open_review_get(inactive_user):
 	permaId = []
 	for i in inactive_user:
-		url = "http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/filter?creator="+i+"&author="+i+"&moderator="+i+"&reviewer="+i+"&states=Review"
+		url = "http://test.com/rest-service/reviews-v1/filter?creator="+i+"&author="+i+"&moderator="+i+"&reviewer="+i+"&states=Review"
 		print("Open Review of the userName:",i)
 		headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
 		resp = requests.get(url, headers=headers)
@@ -44,7 +44,7 @@ def open_review_get(inactive_user):
 def delete_open_review(inactive_user):
 	permaId = []
 	for i in inactive_user:
-		url = "http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/filter?creator="+i+"&author="+i+"&moderator="+i+"&reviewer="+i+"&states=Review"
+		url = "http://test.com/rest-service/reviews-v1/filter?creator="+i+"&author="+i+"&moderator="+i+"&reviewer="+i+"&states=Review"
 		headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic Y3J1YWRtaW46Y3J1YWRtaW4='}
 		resp = requests.get(url, headers=headers)
 		data=resp.json()
@@ -57,7 +57,7 @@ def delete_open_review(inactive_user):
 					"action":"action:closeReview",
 					"ignoreWarnings":"ignoreWarnings==true"
 					}
-					uri = "http://tiger.in.alcatel-lucent.com:8060/rest-service/reviews-v1/"+value+"/transition?action=action:closeReview"
+					uri = "http://test.com/rest-service/reviews-v1/"+value+"/transition?action=action:closeReview"
 					response = requests.post(uri, data=load, headers=headers)
 					rest=response.json()
 					print(rest)
